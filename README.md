@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created by Baron Bloomer 
 
-Things you may want to cover:
+## Task A
 
-* Ruby version
+### Ruby On Rails FizzBuzz application
 
-* System dependencies
+Standard FizzBuzz rules, divisible by 3 is Fizz, divisible by 5 is Buzz
+* Should display values from 1 to 100 on the homepage
+* Should allow viewing values up to 100,000,000,000
+* Should have pagination (not from libraries)
+* Should allow changing of the page size
+* User should be able to mark certain numbers as their favourites, these should indicate that they are favourites on the UI and be persisted
+* Should provide a JSON API with all the above-mentioned functionality
 
-* Configuration
+## Task B
 
-* Database creation
+### JSON API Client
 
-* Database initialization
+Create a fully featured client for the FizzBuzz application API
+* Should be available from the command line (CLI)
+* Should be written in a language other than Ruby/Elixir (no shell scripts)
 
-* How to run the test suite
+## Notes
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* We value best practice and clean code.
+* Please provide a full tests coverage.
+* Use a public repository account (i.e. Bitbucket/Github) to publish your result.
+* Commit early and often with clear messages.
+* If you need further info, please contact us.
