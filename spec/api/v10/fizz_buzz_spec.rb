@@ -8,8 +8,10 @@ RSpec.describe Api::V10::FizzBuzz, type: :request do
   describe 'GET /api/v1.0/fizz_buzz' do
     let(:path) { 'fizz_buzz' }
 
-    subject { dispatch }
+    before { dispatch }
 
-    it { is_expected.to eq 204 }
+    subject { decoded_json_response }
+
+    its(:size) { is_expected.to eq 100 }
   end
 end

@@ -2,6 +2,13 @@ class Api::V10::FizzBuzz < Grape::API
   helpers GrapePaginationHelper
 
   helpers do
+    def collection
+      @collection ||= ::FizzBuzzQuery.new(pagination_threshold_values).results
+    end
+
+    # def decorated_collection
+    #   FizzBuzzDecorator.new(collection)
+    # end
   end
 
   namespace :fizz_buzz do
@@ -10,7 +17,8 @@ class Api::V10::FizzBuzz < Grape::API
       use :pagination_params
     end
     get '/' do
-      say_completed
+      # present_pagination decorated_collection
+      present collection
     end
   end
 end

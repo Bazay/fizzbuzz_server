@@ -1,4 +1,6 @@
 RSpec.describe FizzBuzzGenerator, type: :request do
+  using Refinements::Array::Formatter
+
   let(:generator) { described_class.new }
 
   describe '#generate' do
@@ -10,7 +12,7 @@ RSpec.describe FizzBuzzGenerator, type: :request do
 
     subject { generator.generate *generator_args }
 
-    it { is_expected.to match_array expected_array }
+    it { expect(subject.map_key!(:type)).to match_array expected_array }
 
     context "when 'from' argument provided" do
       let(:generator_args) { [to, from] }
@@ -18,6 +20,8 @@ RSpec.describe FizzBuzzGenerator, type: :request do
       let :expected_array do
         ['Buzz', 'Fizz', nil, nil, 'Fizz', 'Buzz', nil, 'Fizz', nil, nil, 'FizzBuzz']
       end
+
+      it { expect(subject.map_key!(:type)).to match_array expected_array }
     end
   end
 end
