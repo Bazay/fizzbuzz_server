@@ -1,0 +1,11 @@
+%ul.pagination
+  - unless pagination_values.first_page?
+    %li.page-item
+      %a.page-link{ href: pagination_values.previous_page_url } Previous
+  %li.page-item.active
+    %span.page-link
+      = pagination_values.page
+  - unless pagination_values.last_page?
+    %li.page-item
+      %a.page-link{ href: pagination_values.next_page_url }
+        Next

@@ -35,6 +35,7 @@ module FizzbuzzServer
       #{config.root}/app/api/concerns
       #{config.root}/app/api/helpers
       #{config.root}/app/lib
+      #{config.root}/app/values
     )
     config.autoload_paths   += additional_paths
     config.eager_load_paths += additional_paths
