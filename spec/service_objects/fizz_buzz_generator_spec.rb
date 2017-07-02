@@ -7,21 +7,21 @@ RSpec.describe FizzBuzzGenerator, type: :request do
     let(:generator_args) { [to] }
     let(:to) { 15 }
     let :expected_array do
-      [nil, nil, 'Fizz', nil, 'Buzz', 'Fizz', nil, nil, 'Fizz', 'Buzz', nil, 'Fizz', nil, nil, 'FizzBuzz']
+      [nil, nil, 'FIZZ', nil, 'BUZZ', 'FIZZ', nil, nil, 'FIZZ', 'BUZZ', nil, 'FIZZ', nil, nil, 'FIZZBUZZ']
     end
 
     subject { generator.generate *generator_args }
 
-    it { expect(subject.map_key!(:type)).to match_array expected_array }
+    it { expect(subject.map(&:classification)).to match_array expected_array }
 
     context "when 'from' argument provided" do
       let(:generator_args) { [to, from] }
       let(:from) { 5 }
       let :expected_array do
-        ['Buzz', 'Fizz', nil, nil, 'Fizz', 'Buzz', nil, 'Fizz', nil, nil, 'FizzBuzz']
+        ['BUZZ', 'FIZZ', nil, nil, 'FIZZ', 'BUZZ', nil, 'FIZZ', nil, nil, 'FIZZBUZZ']
       end
 
-      it { expect(subject.map_key!(:type)).to match_array expected_array }
+      it { expect(subject.map(&:classification)).to match_array expected_array }
     end
   end
 end

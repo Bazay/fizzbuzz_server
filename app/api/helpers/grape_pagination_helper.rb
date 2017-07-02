@@ -8,7 +8,7 @@ module GrapePaginationHelper
     optional :per_page, type: Integer, default: configatron.api.per_page
   end
 
-  def present_pagination paginated_collection
+  def present_pagination
     present :page, page
     present :last_page, last_page?
     present :total_pages, total_pages

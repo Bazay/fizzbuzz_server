@@ -24,11 +24,11 @@ module Pagination
   end
 
   def last_page?
-    paginated_values.last_page?
+    pagination_values.last_page?
   end
 
   def total_pages
-    paginated_values.total_pages
+    pagination_values.total_pages
   end
 
   def pagination_values

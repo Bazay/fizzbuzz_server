@@ -41,7 +41,10 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
   gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
+  gem 'pickle'
   gem 'database_cleaner', require: false
+  gem 'capybara-screenshot'
 end
 
 group :development do

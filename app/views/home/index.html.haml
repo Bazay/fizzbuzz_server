@@ -1,5 +1,25 @@
-%h1 Standard FizzBuzz Application
-.fizzbuzz
-  = @fizzbuzz
+.text-center
+  = render 'shared/pagination_links', pagination_values: @pagination_values
 
-= render 'shared/pagination_links', pagination_values: @pagination_values
+.panel.panel-default
+  .panel-heading= I18n.t 'homepage_panel_header'
+  .panel-body
+    %p= I18n.t 'homepage_greeting'
+
+  %table.table.table-hover.b-fizz-buzz-table
+    %thead
+      %tr.b-fizz-buzz-header-row
+        %th #
+        %th.text-center= I18n.t 'fizzbuzz_table_header'
+        %th.text-center= I18n.t 'favourite_table_header'
+    - @fizzbuzz.each do |fizzbuzz|
+      %tr.b-fizz-buzz-item
+        %th.b-fizz-buzz-item-number= fizzbuzz.number
+        %td.b-fizz-buzz-item-classification.text-center
+          %span.label{ class: fizzbuzz.classification.to_s.downcase }= fizzbuzz.classification
+        %td.b-fizz-buzz-item-favourite.text-center.favourite-star
+          %span.glyphicon{ class: fizzbuzz.favourite ? 'glyphicon-star' : 'glyphicon-star-empty' }
+
+
+.text-center
+  = render 'shared/pagination_links', pagination_values: @pagination_values

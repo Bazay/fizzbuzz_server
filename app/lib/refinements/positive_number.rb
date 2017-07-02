@@ -13,7 +13,7 @@ module Refinements::PositiveNumber
 
   refine Integer do
     def fetch_positive_number default = nil
-      nonzero? or default
+      nonzero? && abs || default
     end
   end
 end

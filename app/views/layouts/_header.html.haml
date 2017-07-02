@@ -1,0 +1,8 @@
+.header.clearfix
+  %nav
+    %ul.nav.nav-pills.pull-right
+      %li.nav-item{ class: home_page? ? 'active' : '' }
+        %a.nav-link{ href: home_path } Home
+      %li.nav-item{ class: about_page? ? 'active' : '' }
+        %a.nav-link{ href: about_path } About
+  %h3.text-muted Fizz Buzz

@@ -7,14 +7,14 @@ class PaginationValues
 
   def initialize request:, page: nil, per_page: nil, default_page: nil, default_per_page: nil
     @request = request
-    @page = page
-    @per_page = per_page
     @default_page = default_page || configatron.api.page
     @default_per_page = default_per_page || configatron.api.per_page
+    @page = page.fetch_positive_number @default_page
+    @per_page = per_page
   end
 
   def page
-    @page.fetch_positive_number @default_page
+    @page <= total_pages ? @page : total_pages
   end
 
   def per_page
@@ -22,7 +22,7 @@ class PaginationValues
   end
 
   def first_page?
-    page == 1
+    page <= 1
   end
 
   def last_page?

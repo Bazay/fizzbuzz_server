@@ -2,9 +2,12 @@
 %html
   %head
     %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
-    %title FizzBuzz Server
+    %title Fizz Buzz Server
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .container
+      = render 'layouts/header'
+      = yield
+      = render 'layouts/footer'

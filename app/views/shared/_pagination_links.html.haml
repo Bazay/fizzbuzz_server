@@ -1,11 +1,11 @@
 %ul.pagination
   - unless pagination_values.first_page?
     %li.page-item
-      %a.page-link{ href: pagination_values.previous_page_url } Previous
+      %a.page-link.l-page-previous{ href: pagination_values.previous_page_url } Previous
   %li.page-item.active
-    %span.page-link
+    %span.page-link.l-page-current-page
       = pagination_values.page
   - unless pagination_values.last_page?
-    %li.page-item
+    %li.page-item.l-page-next
       %a.page-link{ href: pagination_values.next_page_url }
         Next
