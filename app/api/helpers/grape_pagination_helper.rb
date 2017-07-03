@@ -4,8 +4,8 @@ module GrapePaginationHelper
   include Pagination
 
   params :pagination_params do
-    optional :page, type: Integer, default: configatron.api.page
-    optional :per_page, type: Integer, default: configatron.api.per_page
+    optional :page, type: Integer, default: configatron.pagination.page
+    optional :per_page, type: Integer, default: configatron.pagination.per_page
   end
 
   def present_pagination

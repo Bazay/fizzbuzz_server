@@ -3,7 +3,7 @@ class FizzBuzz < ApplicationRecord
 
   class << self
     def find_or_initialize_numbers numbers
-      numbers.map { |number| where(number: numbers).find_or_create_by number: number }
+      numbers.map { |number| where(number: numbers).find_or_initialize_by number: number }
     end
   end
 

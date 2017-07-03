@@ -1,3 +1,10 @@
+When(/^I toggle fizz buzz as my favourite$/) do
+  within '.b-fizz-buzz-table' do
+    page.first('.b-fizz-buzz-item-favourite').click
+  end
+  wait_for_ajax
+end
+
 Then(/^I expect to see the fizz buzz table$/) do
   within '.container' do
     expect(page).to have_css '.b-fizz-buzz-table'

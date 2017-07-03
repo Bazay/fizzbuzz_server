@@ -7,8 +7,8 @@ class PaginationValues
 
   def initialize request:, page: nil, per_page: nil, default_page: nil, default_per_page: nil
     @request = request
-    @default_page = default_page || configatron.api.page
-    @default_per_page = default_per_page || configatron.api.per_page
+    @default_page = default_page || configatron.pagination.page
+    @default_per_page = default_per_page || configatron.pagination.per_page
     @page = page.fetch_positive_number @default_page
     @per_page = per_page
   end
@@ -30,7 +30,7 @@ class PaginationValues
   end
 
   def total_pages
-    configatron.api.fizzbuzz_values.maximum / per_page
+    configatron.fizzbuzz_values.maximum / per_page
   end
 
   def pagination_url_builder

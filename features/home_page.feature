@@ -19,3 +19,13 @@ Feature: Home page
     When I go to the home page with params page: 2
     Then I expect to be on pagination page 2
     And I expect to see pagination previous button
+
+  @javascript
+  Scenario: When I toggle a favourite fizz buzz
+    Given I go to the home page with params per_page: 1, page: 3
+    And I expect to see a fizz buzz for the number 3
+    And I expect to see a favourite fizz buzz
+    When I toggle fizz buzz as my favourite
+    Then I expect not to see a favourite fizz buzz
+    When I toggle fizz buzz as my favourite
+    Then I expect to see a favourite fizz buzz

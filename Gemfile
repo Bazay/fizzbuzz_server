@@ -44,6 +44,8 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'pickle'
   gem 'database_cleaner', require: false
+  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'capybara-screenshot'
 end
 

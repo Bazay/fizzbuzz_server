@@ -5,6 +5,11 @@
   .panel-heading= I18n.t 'homepage_panel_header'
   .panel-body
     %p= I18n.t 'homepage_greeting'
+    = form_tag current_url, method: :get, class: 'form-inline' do
+      = text_field_tag :per_page, @pagination_values.per_page, class: 'form-control '
+      - # Personally, I feel :page value should be reset. However, you can persist the current page number by enabling the following line
+      = # hidden_field_tag :page, @pagination_values.page
+      = submit_tag I18n.t('change_per_page_value'), class: 'btn btn-default'
 
   %table.table.table-hover.b-fizz-buzz-table
     %thead
@@ -18,7 +23,7 @@
         %td.b-fizz-buzz-item-classification.text-center
           %span.label{ class: fizzbuzz.classification.to_s.downcase }= fizzbuzz.classification
         %td.b-fizz-buzz-item-favourite.text-center.favourite-star
-          %span.glyphicon{ class: fizzbuzz.favourite ? 'glyphicon-star' : 'glyphicon-star-empty' }
+          %span.l-fizz-buzz-favourite-icon.glyphicon{ class: fizzbuzz.favourite ? 'glyphicon-star' : 'glyphicon-star-empty', 'data-number' => fizzbuzz.number }
 
 
 .text-center
