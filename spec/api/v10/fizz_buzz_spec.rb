@@ -8,7 +8,7 @@ RSpec.describe Api::V10::FizzBuzz, type: :request do
   describe 'GET /api/v1.0/fizz_buzz' do
     before { dispatch }
 
-    subject { decoded_json_response }
+    subject { decoded_json_response['fizz_buzzes'] }
 
     its(:size) { is_expected.to eq 100 }
 
@@ -46,8 +46,6 @@ RSpec.describe Api::V10::FizzBuzz, type: :request do
       subject { decoded_json_response['fizz_buzz'] }
 
       it_behaves_like 'json fizz buzz response'
-
-      its(['id']) { is_expected.to eq fizz_buzz.id }
     end
   end
 end

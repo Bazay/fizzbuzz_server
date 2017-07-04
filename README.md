@@ -2,7 +2,27 @@
 
 Created by Baron Bloomer
 
-**Live Demo:** [Click here](https://fizzbuzzbaron.herokuapp.com)
+**Live Demo**  
+[Click here](https://fizzbuzzbaron.herokuapp.com)
+
+**JSON API Client (Instructions)**  
+The client is written in Python and is located under:
+
+```
+/public/scripts/client.py
+```
+
+or alternatively you can execute the following command in the terminal to download the script to your working directory.
+
+```
+curl -O https://fizzbuzzbaron.herokuapp.com/scripts/client.py
+```
+
+Instructions on how to use the client can be found by executing the downloaded file with python using the `-h` option:
+
+```
+python client.py -h
+```
 
 ## Task A
 

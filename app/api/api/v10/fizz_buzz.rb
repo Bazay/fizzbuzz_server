@@ -19,17 +19,16 @@ class Api::V10::FizzBuzz < Grape::API
     end
     get '/' do
       present_pagination
-      present collection, using: Entities::FizzBuzz
+      present :fizz_buzzes, collection, with: Entities::FizzBuzz
     end
 
     desc 'Create new fizz buzz'
-    # params do
-    #   use :fizz_buzz_params
-    # end
+    params do
+      use :fizz_buzz_params
+    end
     post '/' do
-      # binding.pry
       form = ::FizzBuzzForm.new(fizz_buzz, params[:fizz_buzz])
-      present :fizz_buzz, form.model, using: Entities::FizzBuzz if form.save
+      present :fizz_buzz, form.model, with: Entities::FizzBuzz if form.save
     end
   end
 end
